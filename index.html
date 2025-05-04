@@ -4,10 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Truth, Dare, Dream 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      background: linear-gradient(to bottom right, #ffe6e6, #fff0f5);
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom right, #fff0f5, #ffe6e6);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -16,7 +17,8 @@
       margin: 0;
       text-align: center;
       overflow-x: hidden;
-      padding-top: 100px; /* make space for banner */
+      padding-top: 100px;
+      color: #3d3d3d;
     }
 
     .birthday-banner {
@@ -35,20 +37,22 @@
     }
 
     h1 {
-      font-size: 2.5em;
+      font-family: 'Dancing Script', cursive;
+      font-size: 3em;
       color: #e91e63;
       margin: 10px 0;
+      animation: fadeIn 1.5s ease-in-out;
     }
 
     .subtext {
       font-size: 1.2em;
-      color: #444;
+      color: #5e2b4f;
       margin-bottom: 10px;
     }
 
     .countdown {
       font-size: 1em;
-      color: #555;
+      color: #6a1b4d;
       margin-bottom: 20px;
     }
 
@@ -61,6 +65,8 @@
       border: none;
       border-radius: 12px;
       cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
     }
 
     button:hover {
@@ -70,10 +76,12 @@
     #prompt {
       margin-top: 20px;
       font-weight: bold;
+      color: #ad1457;
+      font-size: 1.1em;
     }
 
     .love-note {
-      background-color: #fff0f5;
+      background-color: #ffffff;
       border: 2px dashed #e91e63;
       padding: 20px;
       border-radius: 15px;
@@ -82,9 +90,10 @@
       max-width: 500px;
       font-size: 1.1em;
       color: #c2185b;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      animation: fadeIn 1.8s ease;
     }
 
-    /* Floating hearts */
     .heart {
       position: fixed;
       top: -2%;
@@ -103,6 +112,11 @@
         transform: translateY(110vh) rotate(360deg);
         opacity: 0;
       }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -129,10 +143,10 @@
 
   <!-- Love Note Section -->
   <div class="love-note">
-    💌 Today’s Love Note (Day 4):  
+    💌 <strong>Today’s Love Note (Day 4):</strong><br>
     I know you’ve been counting down the days — and so have I.  
     Every little thing I do this month is just one big way of saying:  
-    I love you deeply, truly, and wildly.  
+    <em>I love you deeply, truly, and wildly.</em>  
     You make every day feel like magic. 🫶  
   </div>
 
@@ -154,7 +168,7 @@
     const prompts = [
       "💬 Truth: What’s something you’ve wanted to tell me but haven’t yet?",
       "🔥 Dare: Send me a voice note saying 'I love you' with your cutest voice.",
-      "🌙 Dream: Describe our perfect future date, no budget, no limits go wild!",
+      "🌙 Dream: Describe our perfect future date — go wild!",
       "💬 Truth: What do you miss most about me right now?",
       "🔥 Dare: Text me a random nickname you just made up for me.",
       "🌙 Dream: If we could teleport anywhere tonight, where would we go?",
@@ -168,4 +182,4 @@
     }
   </script>
 </body>
-</html>
+</html>     
