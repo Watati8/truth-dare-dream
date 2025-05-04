@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Truth, Dare, or Dream</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 2rem;
+      text-align: center;
+      color: #333;
+    }
+    h1 {
+      color: #d81b60;
+    }
+    button {
+      margin: 1rem;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #d81b60;
+      color: white;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #ad1457;
+    }
+    .response {
+      display: none;
+      margin-top: 2rem;
+      padding: 1rem;
+      border-radius: 10px;
+      background: #fff3f7;
+      border: 1px solid #f8bbd0;
+    }
+  </style>
+</head>
+<body>
+  <h1>You get to choose: Truth, Dare, or Dream.</h1>
+  <p>But here’s the twist — no skipping, and each comes with a consequence… or a reward 😉</p>
+
+  <button onclick="show('truth')">Truth</button>
+  <button onclick="show('dare')">Dare</button>
+  <button onclick="show('dream')">Dream</button>
+
+  <div id="truth" class="response">
+    <h2>Truth</h2>
+    <p>What’s one thought about me you had recently… but didn’t say out loud?</p>
+  </div>
+
+  <div id="dare" class="response">
+    <h2>Dare</h2>
+    <p>Send me a voice note whispering something you wouldn’t dare say in public.</p>
+  </div>
+
+  <div id="dream" class="response">
+    <h2>Dream</h2>
+    <p>Describe a dream date night — with me, no budget, no limits.</p>
+  </div>
+
+  <p style="margin-top: 3rem; font-style: italic;">P.S. I dare you to surprise me back — your move 😘</p>
+
+  <script>
+    function show(id) {
+      document.querySelectorAll('.response').forEach(div => div.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+  </script>
+</body>
+</html>
