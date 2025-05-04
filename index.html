@@ -11,20 +11,47 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
+      justify-content: flex-start;
+      min-height: 100vh;
       margin: 0;
       text-align: center;
+      overflow-x: hidden;
+      padding-top: 100px; /* make space for banner */
     }
+
+    .birthday-banner {
+      width: 100%;
+      background-color: #ffe4e1;
+      color: #c2185b;
+      font-weight: bold;
+      padding: 12px 0;
+      font-size: 1.1em;
+      position: fixed;
+      top: 0;
+      left: 0;
+      text-align: center;
+      z-index: 999;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
     h1 {
       font-size: 2.5em;
       color: #e91e63;
+      margin: 10px 0;
     }
-    p {
+
+    .subtext {
       font-size: 1.2em;
       color: #444;
-      max-width: 400px;
+      margin-bottom: 10px;
     }
+
+    .countdown {
+      font-size: 1em;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
     button {
       margin-top: 20px;
       padding: 12px 24px;
@@ -35,32 +62,99 @@
       border-radius: 12px;
       cursor: pointer;
     }
+
     button:hover {
       background-color: #e91e63;
     }
-    .heart {
-      font-size: 2em;
-      animation: float 2s infinite;
+
+    #prompt {
+      margin-top: 20px;
+      font-weight: bold;
     }
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0); }
+
+    .love-note {
+      background-color: #fff0f5;
+      border: 2px dashed #e91e63;
+      padding: 20px;
+      border-radius: 15px;
+      margin-top: 30px;
+      width: 80%;
+      max-width: 500px;
+      font-size: 1.1em;
+      color: #c2185b;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: fixed;
+      top: -2%;
+      font-size: 2em;
+      color: #ff69b4;
+      animation: floatHearts 8s infinite linear;
+      pointer-events: none;
+    }
+
+    @keyframes floatHearts {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="heart">💖</div>
-  <h1>Hey love!</h1>
-  <p>I made you this little surprise page. Wanna play a game of Truth, Dare, or Dream? 😘</p>
+  <!-- Birthday Countdown Banner -->
+  <div class="birthday-banner">
+    🎂 Only <span id="bdayCountdown">X</span> days till your 29th birthday! 🎈
+  </div>
+
+  <!-- Floating Hearts -->
+  <div class="heart" style="left: 10%;">💖</div>
+  <div class="heart" style="left: 30%; animation-delay: 1s;">💕</div>
+  <div class="heart" style="left: 50%; animation-delay: 2s;">💗</div>
+  <div class="heart" style="left: 70%; animation-delay: 3s;">💞</div>
+  <div class="heart" style="left: 90%; animation-delay: 4s;">💓</div>
+
+  <h1>Hey love! 💌</h1>
+  <div class="subtext">Day 4 of 29 • Your birthday month adventure 🎉</div>
+  <div class="countdown">⏳ Only <span id="daysLeft">41</span> days till I get to kiss you again.</div>
+
+  <p class="subtext">Wanna play a little game of Truth, Dare, or Dream? 😘</p>
   <button onclick="showPrompt()">Give me one!</button>
-  <p id="prompt" style="margin-top: 20px; font-weight: bold;"></p>
+  <p id="prompt"></p>
+
+  <!-- Love Note Section -->
+  <div class="love-note">
+    💌 **Today’s Love Note (Day 4):**  
+    I know you’ve been counting down the days — and so have I.  
+    Every little thing I do this month is just one big way of saying:  
+    *I love you deeply, truly, and wildly.*  
+    You make every day feel like magic. 🫶  
+  </div>
 
   <script>
+    // Reunion Countdown
+    const reunionDate = new Date("2025-06-14");
+    const today = new Date();
+    const diffTime = reunionDate - today;
+    const daysLeft = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    document.getElementById("daysLeft").textContent = daysLeft;
+
+    // Birthday Countdown
+    const birthday = new Date("2025-05-18");
+    const timeUntilBday = birthday - today;
+    const daysToBday = Math.ceil(timeUntilBday / (1000 * 60 * 60 * 24));
+    document.getElementById("bdayCountdown").textContent = daysToBday;
+
+    // Truth/Dare/Dream Prompts
     const prompts = [
       "💬 Truth: What’s something you’ve wanted to tell me but haven’t yet?",
-      "🔥 Dare: Send me a voice note whispering something you wouldn’t dare say in public",
-      "🌙 Dream: Describe our perfect future date, no budget no limits!",
+      "🔥 Dare: Send me a voice note saying 'I love you' with your cutest voice.",
+      "🌙 Dream: Describe our perfect future date, no budget, no limits go wild!",
       "💬 Truth: What do you miss most about me right now?",
       "🔥 Dare: Text me a random nickname you just made up for me.",
       "🌙 Dream: If we could teleport anywhere tonight, where would we go?",
