@@ -5,17 +5,117 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Final Whisper</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(ellipse at top, #0d001a, #1a001f);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://raw.githubusercontent.com/Kilian/particle-backgrounds/main/space/stars-bg.gif') repeat;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 100px auto;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255, 182, 193, 0.2);
+    }
+
+    h2 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      font-weight: 600;
+      color: #ffd1dc;
+    }
+
+    .big {
+      font-size: 1.6em;
+      margin-bottom: 10px;
+    }
+
+    .small {
+      font-size: 1.1em;
+      margin-bottom: 30px;
+    }
+
+    .countdown {
+      font-size: 1.2em;
+      margin: 10px 0;
+      color: #ffe6f0;
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-style: italic;
+      font-size: 1em;
+      color: #ffccdd;
+    }
+  </style>
 </head>
 <body>
   <div class="stars"></div>
-  <div class="container center">
+
+  <div class="container">
     <h2>Final Whisper</h2>
     <p class="big">You’re my favorite quiet moment and loudest desire all at once.</p>
-    <p class="small">Next time I see you: June 15th 💌</p>
+    <p class="small">Here’s what I’m counting down to…</p>
+
+    <div class="countdown" id="bday-countdown">His birthday: <span></span></div>
+    <div class="countdown" id="reunion-countdown">When I see you again: <span></span></div>
+
     <div class="footer">
       <p>Stay with me, always. 🌙</p>
     </div>
   </div>
+
+  <script>
+    function updateCountdown(id, targetDate) {
+      const countdown = document.getElementById(id).querySelector("span");
+
+      function update() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance < 0) {
+          countdown.innerText = "It's here 💘";
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((distance / 1000 / 60) % 60);
+        const seconds = Math.floor((distance / 1000) % 60);
+
+        countdown.innerText = `${days} days, ${hours} hrs, ${minutes} mins, ${seconds} secs`;
+      }
+
+      update();
+      setInterval(update, 1000);
+    }
+
+    // Replace these dates with your actual ones (in local time)
+    const birthday = new Date("May 18, 2025 00:00:00").getTime();
+    const reunion = new Date("June 15, 2025 00:00:00").getTime();
+
+    updateCountdown("bday-countdown", birthday);
+    updateCountdown("reunion-countdown", reunion);
+  </script>
 </body>
 </html>
