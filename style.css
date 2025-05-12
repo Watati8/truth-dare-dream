@@ -1,0 +1,106 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0b0b0b;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://www.transparenttextures.com/patterns/starry-night.png') repeat;
+  z-index: -1;
+  animation: starsMovement 50s linear infinite;
+}
+
+/* Title Styles */
+h2 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 3rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 1rem;
+  animation: fadeIn 2s ease-out;
+}
+
+/* Big Text */
+.big {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #f3f3f3;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 2.5s ease-out;
+}
+
+/* Small Text */
+.small {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #bbb;
+  margin-bottom: 2rem;
+  animation: fadeIn 3s ease-out;
+}
+
+/* Footer Text */
+.footer {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #f3f3f3;
+  margin-top: 2rem;
+  animation: fadeIn 3.5s ease-out;
+}
+
+/* Animation for fadeIn effect */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation for stars background */
+@keyframes starsMovement {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 1000px 1000px;
+  }
+}
+
+.center {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 2rem;
+  }
+  .big {
+    font-size: 1.2rem;
+  }
+  .small {
+    font-size: 0.9rem;
+  }
+}
