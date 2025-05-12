@@ -5,11 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Letters from Me</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="letters">
   <div class="stars"></div>
   <div class="container">
-    <h2>Letters from Me</h2>
+    <h2 class="title">Letters from Me ✍️</h2>
+    <p class="subtitle">Little pieces of my heart, just for you.</p>
+
     <div class="card-grid">
       <div class="card" onclick="toggleText(this)">
         <h3>What I noticed about you…</h3>
@@ -24,11 +27,15 @@
         <p class="hidden">I’d hold your face, kiss your forehead, and say, “You’re home.”</p>
       </div>
     </div>
+
     <a class="button" href="quiz.html">Next: A Little Quiz 💫</a>
   </div>
+
   <script>
     function toggleText(card) {
-      card.querySelector('p').classList.toggle('hidden');
+      const para = card.querySelector('p');
+      para.classList.toggle('hidden');
+      card.classList.toggle('flipped');
     }
   </script>
 </body>
