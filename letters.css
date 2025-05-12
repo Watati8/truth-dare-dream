@@ -1,6 +1,6 @@
-/* === Letters Page Styles === */
+/* === General Body and Background === */
 body.letters {
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Poppins', sans-serif;
   background: radial-gradient(ellipse at top, #1d1b3a 0%, #0d0d1e 100%);
   color: #fff;
   min-height: 100vh;
@@ -9,62 +9,90 @@ body.letters {
   position: relative;
 }
 
-.letter {
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 30px;
-  border-radius: 10px;
-  margin-bottom: 40px;
-  animation: fadeIn 1.5s ease-in-out;
-  position: relative;
-  z-index: 1;
-}
-
-/* Glowing title */
-.letter h3 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+/* === Title and Subtitle === */
+.title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 15px;
   color: #ffc0cb;
-  text-shadow: 0 0 10px #ffc0cb, 0 0 20px #ff99aa, 0 0 30px #ff99aa;
+  text-shadow: 0 0 10px #ffc0cb, 0 0 20px #ff99aa;
 }
 
-/* Paragraph style */
-.letter p {
+.subtitle {
   font-size: 1.2rem;
+  text-align: center;
+  color: #e0e0e0;
+  margin-bottom: 30px;
+}
+
+/* === Card Grid and Card Styles === */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #ffc0cb;
+  text-shadow: 0 0 10px #ffc0cb, 0 0 20px #ff99aa;
+}
+
+.card p {
+  font-size: 1.1rem;
   line-height: 1.8;
   color: #e0e0e0;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
-/* Reveal Button */
-.reveal-button {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 25px;
-  font-size: 1rem;
-  background: #ff80ab;
+.card.flipped p {
+  display: block;
+  opacity: 1;
+}
+
+/* === Reveal Button Styles === */
+.button {
+  display: block;
+  text-align: center;
+  background-color: #ff80ab;
   color: #fff;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
+  padding: 12px 25px;
+  margin-top: 40px;
+  font-size: 1.2rem;
   font-weight: bold;
+  text-decoration: none;
+  border-radius: 30px;
   box-shadow: 0 0 10px #ff80ab, 0 0 20px #ff99bb;
   transition: background 0.3s ease, transform 0.2s;
 }
 
-.reveal-button:hover {
-  background: #ff99bb;
+.button:hover {
+  background-color: #ff99bb;
   transform: scale(1.05);
 }
 
-/* Hidden message section */
-.hidden-message {
-  display: none;
-  margin-top: 30px;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.15);
-  border-left: 4px solid #ffc0cb;
-  font-size: 1.1rem;
-  color: #fefefe;
-  animation: fadeIn 1.2s ease-in-out;
+/* === Animation for Fade-In and Text Reveal === */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* === Stars Background === */
@@ -77,13 +105,11 @@ body.letters {
   animation: twinkle 100s linear infinite;
 }
 
-/* === Animations === */
-@keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
 @keyframes twinkle {
-  from { background-position: 0 0; }
-  to { background-position: 10000px 5000px; }
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 10000px 5000px;
+  }
 }
