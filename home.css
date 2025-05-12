@@ -51,6 +51,13 @@ body.home {
 
 .button:hover {
   background-color: #ffa7b6;
+
+}
+
+.button {
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
 }
 
 h2 {
