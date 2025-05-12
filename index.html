@@ -4,113 +4,155 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>For Sam</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Dancing+Script&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
-      color: #fefefe;
+      font-family: 'Playfair Display', serif;
+      background: linear-gradient(to bottom right, #0f0f2d, #2a1a2e);
+      color: #f8f0e3;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      padding: 40px 20px;
-      min-height: 100vh;
+      padding: 2rem;
     }
 
     h1 {
-      font-size: 2.5rem;
-      text-align: center;
-      margin-bottom: 10px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 3rem;
+      color: #fcd6c6;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      margin-bottom: 1rem;
     }
 
-    p.opening {
-      font-size: 1.2rem;
-      margin-bottom: 40px;
-      max-width: 600px;
-      text-align: center;
-      color: #ccc;
-    }
-
-    .note-container {
-      display: grid;
-      gap: 30px;
+    .section {
       max-width: 700px;
-      width: 100%;
-      margin-bottom: 60px;
+      text-align: center;
+      margin-bottom: 2.5rem;
+      padding: 1rem;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+
+    button {
+      font-family: 'Playfair Display', serif;
+      background-color: transparent;
+      border: 1px solid #fcd6c6;
+      color: #fcd6c6;
+      padding: 0.7rem 1.2rem;
+      border-radius: 8px;
+      margin: 0.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #fcd6c6;
+      color: #2a1a2e;
+      transform: scale(1.05);
+    }
+
+    .reveal-text {
+      display: none;
+      margin-top: 1rem;
+      font-style: italic;
+      color: #e7c9b9;
+    }
+
+    .vault {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
     }
 
     .note {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid #888;
-      border-radius: 12px;
-      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 1rem;
+      width: 220px;
       cursor: pointer;
-      transition: background 0.3s, transform 0.3s;
+      transition: 0.3s;
     }
 
     .note:hover {
-      background: rgba(255, 255, 255, 0.1);
-      transform: translateY(-4px);
+      background-color: rgba(255, 255, 255, 0.12);
     }
 
-    .note h3 {
-      margin: 0;
-      font-size: 1.2rem;
-      color: #ffcad4;
-    }
-
-    .note p {
-      margin-top: 12px;
+    .note-content {
       display: none;
-      font-size: 1rem;
-      color: #e0e0e0;
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+      color: #f4e3d3;
     }
 
-    .note.revealed p {
-      display: block;
-    }
-
-    .final {
-      font-style: italic;
+    .final-whisper {
+      margin-top: 2rem;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.8rem;
+      color: #ffdfd0;
       text-align: center;
-      font-size: 1.4rem;
-      color: #ffd6ff;
-      max-width: 600px;
-      border-top: 1px solid #666;
-      padding-top: 40px;
+      animation: fadeIn 4s ease-in-out forwards;
+      opacity: 0;
     }
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
       }
     }
+
   </style>
 </head>
 <body>
 
-  <h1>For Sam</h1>
-  <p class="opening">Hey you. I know it’s been a few days, but I’ve been working on something. This? This is for you. Take your time. Read it slow. It’s all yours.</p>
+  <h1>Hey Sam, I made you something…</h1>
 
-  <div class="note-container">
-    <div class="note" onclick="this.classList.toggle('revealed')">
-      <h3>What I noticed about you…</h3>
-      <p>The way your eyes light up when you're explaining something you love — it gets me every time.</p>
-    </div>
+  <div class="section">
+    <h2>Letters from Me</h2>
+    <button onclick="toggleText('letter1')">What I noticed about you</button>
+    <button onclick="toggleText('letter2')">What I wish you knew</button>
+    <button onclick="toggleText('letter3')">What I’d tell you if you were here</button>
 
-    <div class="note" onclick="this.classList.toggle('revealed')">
-      <h3>What I wish you knew…</h3>
-      <p>Even when you think you’re being quiet or distant, I still feel so connected to you. You don’t have to try — just being you is enough.</p>
-    </div>
+    <p id="letter1" class="reveal-text">The way you quietly take care of things — from people to plans — is something I admire more than I can say. It’s not loud, but it’s strong. It’s steady. It’s you.</p>
+    <p id="letter2" class="reveal-text">Sometimes I wish you knew how deeply I feel about you, how your presence changes my entire day. It’s not just affection — it’s peace, it’s joy, it’s safety.</p>
+    <p id="letter3" class="reveal-text">If you were here right now, I’d pull you into the biggest, warmest hug and not let go until we both forgot what it felt like to be apart.</p>
+  </div>
 
-    <div class="note" onclick="this.classList.toggle('revealed')">
-      <h3>What I’d tell you if you were here right now…</h3>
-      <p>Come closer. I’ve missed the sound of your voice, the way your hand fits in mine. Stay a while, okay?</p>
+  <div class="section">
+    <h2>Whispers from the Vault</h2>
+    <div class="vault">
+      <div class="note" onclick="toggleNote('note1')">Click me ✨
+        <div id="note1" class="note-content">You looked so good that day I forgot how to form words.</div>
+      </div>
+      <div class="note" onclick="toggleNote('note2')">Another whisper 🌙
+        <div id="note2" class="note-content">If I could bottle the way you make me feel, I’d wear it like cologne.</div>
+      </div>
+      <div class="note" onclick="toggleNote('note3')">Open me 💌
+        <div id="note3" class="note-content">You know when I said I miss you? That was the watered-down version.</div>
+      </div>
+      <div class="note" onclick="toggleNote('note4')">Tap to feel 💖
+        <div id="note4" class="note-content">Even in the silence, I feel connected to you.</div>
+      </div>
     </div>
   </div>
 
-  <div class="final">You’re my favorite quiet moment and loudest desire all at once.</div>
+  <div class="final-whisper">
+    “You’re my favorite quiet moment and loudest desire all at once.”
+  </div>
+
+  <script>
+    function toggleText(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function toggleNote(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
 
 </body>
 </html>
