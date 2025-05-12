@@ -169,7 +169,7 @@ h2 {
   .small {
     font-size: 0.9rem;
   }
-}
+/* === Global Styles === */
 body.letters {
   margin: 0;
   padding: 0;
@@ -181,8 +181,11 @@ body.letters {
   position: relative;
 }
 
+/* === Stars Background === */
 .stars {
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background: url('https://raw.githubusercontent.com/lokesh-coder/starfield/master/stars.png') repeat;
@@ -195,6 +198,7 @@ body.letters {
   to { background-position: 10000px 5000px; }
 }
 
+/* === Container === */
 .container {
   position: relative;
   z-index: 1;
@@ -204,9 +208,10 @@ body.letters {
   text-align: center;
 }
 
+/* === Headings === */
 .title {
   font-family: 'Sacramento', cursive;
-  font-size: 3em;
+  font-size: 3.5em;
   margin-bottom: 10px;
   color: #fff5f9;
 }
@@ -217,6 +222,7 @@ body.letters {
   color: #e4d7ff;
 }
 
+/* === Cards === */
 .card-grid {
   display: grid;
   gap: 20px;
@@ -245,6 +251,8 @@ body.letters {
 .card h3 {
   margin-top: 0;
   font-weight: 600;
+  font-size: 1.2em;
+  color: #ffebf9;
 }
 
 .card p {
@@ -262,6 +270,7 @@ body.letters {
   display: block;
 }
 
+/* === Button === */
 .button {
   display: inline-block;
   margin-top: 40px;
