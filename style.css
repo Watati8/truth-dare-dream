@@ -171,61 +171,91 @@ h2 {
   }
 }
 body.letters {
+  margin: 0;
+  padding: 0;
   font-family: 'Poppins', sans-serif;
-  background: radial-gradient(circle at top, #1e1b3a, #0d0d1e);
+  background: radial-gradient(circle at top, #0b0f26, #000);
   color: #fff;
   overflow-x: hidden;
   min-height: 100vh;
-  padding-bottom: 50px;
+  position: relative;
+}
+
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('https://raw.githubusercontent.com/lokesh-coder/starfield/master/stars.png') repeat;
+  animation: moveStars 60s linear infinite;
+  z-index: 0;
+}
+
+@keyframes moveStars {
+  from { background-position: 0 0; }
+  to { background-position: 10000px 5000px; }
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  padding: 60px 20px;
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
 }
 
 .title {
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 0.5rem;
+  font-family: 'Sacramento', cursive;
+  font-size: 3em;
+  margin-bottom: 10px;
+  color: #fff5f9;
 }
 
 .subtitle {
-  text-align: center;
-  font-style: italic;
-  margin-bottom: 2rem;
-  opacity: 0.8;
+  font-size: 1.2em;
+  margin-bottom: 40px;
+  color: #e4d7ff;
 }
 
 .card-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
   gap: 20px;
+  grid-template-columns: 1fr;
+  max-width: 600px;
+  margin: auto;
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  padding: 20px;
-  width: 280px;
-  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 25px;
   cursor: pointer;
-  transition: transform 0.3s ease, background 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+  color: #fff;
 }
 
 .card:hover {
-  background: rgba(255, 255, 255, 0.15);
-  transform: scale(1.03);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(255, 255, 255, 0.15);
 }
 
 .card h3 {
-  margin-bottom: 10px;
+  margin-top: 0;
   font-weight: 600;
 }
 
 .card p {
-  font-family: 'Sacramento', cursive;
-  font-size: 1.4rem;
-  line-height: 1.6;
+  margin-top: 10px;
+  font-size: 1em;
+  line-height: 1.5;
+  color: #fbefff;
+}
+
+.card .hidden {
   display: none;
-  color: #ffd9e1;
 }
 
 .card.flipped p {
@@ -235,17 +265,15 @@ body.letters {
 .button {
   display: inline-block;
   margin-top: 40px;
-  padding: 12px 24px;
-  background-color: #e0b0ff;
-  color: #1e1b3a;
-  border: none;
-  border-radius: 25px;
+  background-color: #eecaff;
+  color: #2c1034;
   font-weight: 600;
-  font-size: 1rem;
+  padding: 12px 25px;
+  border-radius: 30px;
   text-decoration: none;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .button:hover {
-  background-color: #d48bff;
-} 
+  background-color: #d9b3f2;
+}
