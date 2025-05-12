@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For Sam</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+      color: #fefefe;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    p.opening {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      max-width: 600px;
+      text-align: center;
+      color: #ccc;
+    }
+
+    .note-container {
+      display: grid;
+      gap: 30px;
+      max-width: 700px;
+      width: 100%;
+      margin-bottom: 60px;
+    }
+
+    .note {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #888;
+      border-radius: 12px;
+      padding: 20px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .note:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-4px);
+    }
+
+    .note h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #ffcad4;
+    }
+
+    .note p {
+      margin-top: 12px;
+      display: none;
+      font-size: 1rem;
+      color: #e0e0e0;
+    }
+
+    .note.revealed p {
+      display: block;
+    }
+
+    .final {
+      font-style: italic;
+      text-align: center;
+      font-size: 1.4rem;
+      color: #ffd6ff;
+      max-width: 600px;
+      border-top: 1px solid #666;
+      padding-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>For Sam</h1>
+  <p class="opening">Hey you. I know it’s been a few days, but I’ve been working on something. This? This is for you. Take your time. Read it slow. It’s all yours.</p>
+
+  <div class="note-container">
+    <div class="note" onclick="this.classList.toggle('revealed')">
+      <h3>What I noticed about you…</h3>
+      <p>The way your eyes light up when you're explaining something you love — it gets me every time.</p>
+    </div>
+
+    <div class="note" onclick="this.classList.toggle('revealed')">
+      <h3>What I wish you knew…</h3>
+      <p>Even when you think you’re being quiet or distant, I still feel so connected to you. You don’t have to try — just being you is enough.</p>
+    </div>
+
+    <div class="note" onclick="this.classList.toggle('revealed')">
+      <h3>What I’d tell you if you were here right now…</h3>
+      <p>Come closer. I’ve missed the sound of your voice, the way your hand fits in mine. Stay a while, okay?</p>
+    </div>
+  </div>
+
+  <div class="final">You’re my favorite quiet moment and loudest desire all at once.</div>
+
+</body>
+</html>
