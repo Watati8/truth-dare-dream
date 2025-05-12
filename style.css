@@ -3,6 +3,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
 body.home {
   font-family: 'Quicksand', sans-serif;
   background: radial-gradient(ellipse at top, #1d1b3a 0%, #0d0d1e 100%);
@@ -16,6 +18,7 @@ body.home {
   padding: 30px;
   overflow: hidden;
 }
+
 .stars {
   position: fixed;
   width: 100%;
@@ -25,7 +28,8 @@ body.home {
   overflow: hidden;
 }
 
-.stars::before, .stars::after {
+.stars::before,
+.stars::after {
   content: '';
   position: absolute;
   top: 0;
@@ -50,7 +54,6 @@ body.home {
     transform: translate(-50%, -50%);
   }
 }
-
 
 .container {
   max-width: 600px;
@@ -91,8 +94,14 @@ body.home {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Title Styles */
@@ -102,7 +111,7 @@ h2 {
   font-weight: 600;
   color: #fff;
   margin-bottom: 1rem;
-  animation: fadeIn 2s ease-out;
+  animation: fadeInAlt 2s ease-out;
 }
 
 /* Big Text */
@@ -111,7 +120,7 @@ h2 {
   font-weight: 300;
   color: #f3f3f3;
   margin-bottom: 1.5rem;
-  animation: fadeIn 2.5s ease-out;
+  animation: fadeInAlt 2.5s ease-out;
 }
 
 /* Small Text */
@@ -120,7 +129,7 @@ h2 {
   font-weight: 400;
   color: #bbb;
   margin-bottom: 2rem;
-  animation: fadeIn 3s ease-out;
+  animation: fadeInAlt 3s ease-out;
 }
 
 /* Footer Text */
@@ -129,11 +138,11 @@ h2 {
   font-weight: 400;
   color: #f3f3f3;
   margin-top: 2rem;
-  animation: fadeIn 3.5s ease-out;
+  animation: fadeInAlt 3.5s ease-out;
 }
 
-/* Animation for fadeIn effect */
-@keyframes fadeIn {
+/* Animation for fadeInAlt effect (renamed to avoid conflict) */
+@keyframes fadeInAlt {
   0% {
     opacity: 0;
     transform: translateY(20px);
@@ -169,7 +178,8 @@ h2 {
   .small {
     font-size: 0.9rem;
   }
-/* === Global Styles === */
+}
+
 body.letters {
   margin: 0;
   padding: 0;
@@ -181,7 +191,6 @@ body.letters {
   position: relative;
 }
 
-/* === Stars Background === */
 .stars {
   position: fixed;
   top: 0;
@@ -194,11 +203,14 @@ body.letters {
 }
 
 @keyframes moveStars {
-  from { background-position: 0 0; }
-  to { background-position: 10000px 5000px; }
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 10000px 5000px;
+  }
 }
 
-/* === Container === */
 .container {
   position: relative;
   z-index: 1;
@@ -208,7 +220,6 @@ body.letters {
   text-align: center;
 }
 
-/* === Headings === */
 .title {
   font-family: 'Sacramento', cursive;
   font-size: 3.5em;
@@ -222,7 +233,6 @@ body.letters {
   color: #e4d7ff;
 }
 
-/* === Cards === */
 .card-grid {
   display: grid;
   gap: 20px;
@@ -270,7 +280,6 @@ body.letters {
   display: block;
 }
 
-/* === Button === */
 .button {
   display: inline-block;
   margin-top: 40px;
