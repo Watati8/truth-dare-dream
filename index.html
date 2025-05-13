@@ -18,13 +18,13 @@
     <a href="letters.html" class="button">Start Reading ✨</a>
   </div>
 
-  <!-- Debugging: Test if the button is clickable -->
   <script>
-    const button = document.querySelector('.button');
-    button.addEventListener('click', function(event) {
-      console.log("Button clicked!");
-    });
-  </script>
+  function toggleText(card) {
+    const para = card.querySelector('p');
+    para.classList.toggle('hidden');
+    card.classList.toggle('flipped');
+  }
+</script>
 </body>
 
 </html>
