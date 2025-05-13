@@ -4,10 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Letters from Me</title>
-  <link rel="stylesheet" href="letters.css"> <!-- For letters page -->
+  <link rel="stylesheet" href="letters.css">
   <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* === General Body and Background === */
     body.letters {
       font-family: 'Poppins', sans-serif;
       background: radial-gradient(ellipse at top, #1d1b3a 0%, #0d0d1e 100%);
@@ -18,7 +17,6 @@
       position: relative;
     }
 
-    /* === Title and Subtitle === */
     .title {
       font-size: 2.5rem;
       text-align: center;
@@ -36,7 +34,6 @@
       animation: fadeIn 1.5s ease-in-out forwards;
     }
 
-    /* === Card Grid and Card Styles === */
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -64,17 +61,17 @@
       font-size: 1.1rem;
       line-height: 1.8;
       color: #e0e0e0;
-      display: none;
+      max-height: 0;
+      overflow: hidden;
       opacity: 0;
-      transition: opacity 0.5s ease;
+      transition: all 0.5s ease;
     }
 
     .card.flipped p {
-      display: block;
+      max-height: 500px;
       opacity: 1;
     }
 
-    /* === Reveal Button Styles === */
     .button {
       display: block;
       text-align: center;
@@ -95,7 +92,6 @@
       transform: scale(1.05);
     }
 
-    /* === Animation for Fade-In and Text Reveal === */
     @keyframes fadeIn {
       0% {
         opacity: 0;
@@ -107,7 +103,6 @@
       }
     }
 
-    /* === Stars Background === */
     .stars {
       position: fixed;
       width: 100%;
@@ -126,18 +121,11 @@
       }
     }
 
-    /* Fix: Hidden text logic */
-    .hidden {
-      display: none;
-    }
-
-    /* Fix: Make sure content appears above the stars */
     .container {
       position: relative;
       z-index: 1;
     }
 
-    /* Heart particles */
     .heart {
       position: absolute;
       width: 10px;
@@ -188,16 +176,38 @@
     <div class="card-grid">
       <div class="card" onclick="toggleText(this)">
         <h3>What I noticed about you…</h3>
-        <p class="hidden">You have this calm strength that’s almost magnetic. Even when you’re quiet, I feel you.</p>
+        <p>You have this calm strength that’s almost magnetic. Even when you’re quiet, I feel you.</p>
       </div>
       <div class="card" onclick="toggleText(this)">
         <h3>What I wish you knew…</h3>
-        <p class="hidden">That you already are everything I could’ve ever asked for — even on your worst days.</p>
+        <p>That you already are everything I could’ve ever asked for — even on your worst days.</p>
       </div>
       <div class="card" onclick="toggleText(this)">
         <h3>What I’d tell you if you were here right now…</h3>
-        <p class="hidden">I’d hold your face, kiss your forehead, and say, “You’re home.”</p>
+        <p>I’d hold your face, kiss your forehead, and say, “You’re home.”</p>
       </div>
     </div>
 
-    <a class="button" href="quiz.html">Next: A Little Quiz 
+    <a class="button" href="quiz.html">Next: A Little Quiz 💫</a>
+  </div>
+
+  <script>
+    function toggleText(card) {
+      card.classList.toggle("flipped");
+    }
+
+    // Heart particles (optional enhancement)
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.top = "100vh";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 2000);
+    }, 300);
+  </script>
+</body>
+</html>
