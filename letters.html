@@ -31,12 +31,18 @@
     <a class="button" href="quiz.html">Next: A Little Quiz 💫</a>
   </div>
 
-  <script>
-    function toggleText(card) {
-      const para = card.querySelector('p');
-      para.classList.toggle('hidden');
-      card.classList.toggle('flipped');
+ <script>
+  function toggleText(card) {
+    const para = card.querySelector('p');
+
+    if (para.classList.contains('hidden')) {
+      para.classList.remove('hidden');
+      card.classList.add('flipped');
+    } else {
+      para.classList.add('hidden');
+      card.classList.remove('flipped');
     }
-  </script>
+  }
+</script>
 </body>
 </html>
