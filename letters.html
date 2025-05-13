@@ -4,8 +4,180 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Letters from Me</title>
- <link rel="stylesheet" href="letters.css"> <!-- For letters page -->
+  <link rel="stylesheet" href="letters.css"> <!-- For letters page -->
   <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* === General Body and Background === */
+    body.letters {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(ellipse at top, #1d1b3a 0%, #0d0d1e 100%);
+      color: #fff;
+      min-height: 100vh;
+      padding: 50px 30px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* === Title and Subtitle === */
+    .title {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 15px;
+      color: #ffc0cb;
+      text-shadow: 0 0 10px #ffc0cb, 0 0 20px #ff99aa;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      text-align: center;
+      color: #e0e0e0;
+      margin-bottom: 30px;
+      animation: fadeIn 1.5s ease-in-out forwards;
+    }
+
+    /* === Card Grid and Card Styles === */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      transition: transform 0.3s ease-in-out;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #ffc0cb;
+      text-shadow: 0 0 10px #ffc0cb, 0 0 20px #ff99aa;
+    }
+
+    .card p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #e0e0e0;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .card.flipped p {
+      display: block;
+      opacity: 1;
+    }
+
+    /* === Reveal Button Styles === */
+    .button {
+      display: block;
+      text-align: center;
+      background-color: #ff80ab;
+      color: #fff;
+      padding: 12px 25px;
+      margin-top: 40px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 30px;
+      box-shadow: 0 0 10px #ff80ab, 0 0 20px #ff99bb;
+      transition: background 0.3s ease, transform 0.2s;
+    }
+
+    .button:hover {
+      background-color: #ff99bb;
+      transform: scale(1.05);
+    }
+
+    /* === Animation for Fade-In and Text Reveal === */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* === Stars Background === */
+    .stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: transparent url('stars.svg') repeat top center;
+      z-index: 0;
+      animation: twinkle 100s linear infinite;
+    }
+
+    @keyframes twinkle {
+      from {
+        background-position: 0 0;
+      }
+      to {
+        background-position: 10000px 5000px;
+      }
+    }
+
+    /* Fix: Hidden text logic */
+    .hidden {
+      display: none;
+    }
+
+    /* Fix: Make sure content appears above the stars */
+    .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Heart particles */
+    .heart {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: pink;
+      transform: rotate(45deg);
+      animation: float 2s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: pink;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -5px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -5px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-200px) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 <body class="letters">
   <div class="stars"></div>
@@ -28,21 +200,4 @@
       </div>
     </div>
 
-    <a class="button" href="quiz.html">Next: A Little Quiz 💫</a>
-  </div>
-
- <script>
-  function toggleText(card) {
-    const para = card.querySelector('p');
-
-    if (para.classList.contains('hidden')) {
-      para.classList.remove('hidden');
-      card.classList.add('flipped');
-    } else {
-      para.classList.add('hidden');
-      card.classList.remove('flipped');
-    }
-  }
-</script>
-</body>
-</html>
+    <a class="button" href="quiz.html">Next: A Little Quiz 
