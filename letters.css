@@ -112,4 +112,14 @@ body.letters {
   to {
     background-position: 10000px 5000px;
   }
+/* Fix: Hidden text logic */
+.hidden {
+  display: none;
+}
+
+/* Fix: Make sure content appears above the stars */
+.container {
+  position: relative;
+  z-index: 1;
+}
 }
